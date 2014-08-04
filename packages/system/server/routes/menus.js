@@ -7,6 +7,7 @@ module.exports = function(System, app, auth, database) {
   app.route('/admin/menu/:name')
     .get(function(req, res) {
       var roles = req.user ? req.user.roles : ['anonymous'];
+      var tipoUsuario = req.user ? req.user.tipoUsuario : ['anonymous'];
       var menu = req.params.name || 'main';
       var defaultMenu = req.query.defaultMenu || [];
 
@@ -14,6 +15,7 @@ module.exports = function(System, app, auth, database) {
 
       var items = mean.menus.get({
         roles: roles,
+        tipoUsuario: tipoUsuario,
         menu: menu,
         defaultMenu: defaultMenu.map(function(item) {
           return JSON.parse(item);

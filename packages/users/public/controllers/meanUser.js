@@ -37,15 +37,25 @@ angular.module('mean.users')
     function($scope, $rootScope, $http, $location) {
       $scope.user = {};
 
+      $scope.tiposUsuarios = [
+        {name:'Administrador', value:'administrador'},
+        {name:'Especialista', value:'especialista'},
+        {name:'Policial/Bombeiro', value:'policial/bombeiro'},
+        {name:'Agente externo/interno', value:'agente'},
+        {name:'Coordenador', value:'coordenador'}
+      ];
+
       $scope.register = function() {
         $scope.usernameError = null;
         $scope.registerError = null;
+        debugger
         $http.post('/register', {
           email: $scope.user.email,
           password: $scope.user.password,
           confirmPassword: $scope.user.confirmPassword,
           username: $scope.user.username,
-          name: $scope.user.name
+          name: $scope.user.name,
+          roles: $scope.user.role.value
         })
           .success(function() {
             // authentication OK

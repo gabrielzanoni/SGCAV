@@ -1,4 +1,4 @@
-<div data-ng-controller="RegisterCtrl">
+<div data-ng-controller="RegisterCtrl" style="padding: 10px">
   <div ng-repeat="error in registerError">
     <div class="alert alert-danger animated fadeIn">{{error.msg}}</div>
   </div>
@@ -8,7 +8,7 @@
   <h1>Register</h1>
   <form ng-submit="register()" class="signup form-horizontal">
     <div class="form-group">
-      <label for="name" class="col-md-4 control-label">Full Name</label>
+      <label for="name" class="col-md-4 control-label">Nome completo</label>
       <div class="col-md-8">
         <input id="name" type="text" name="name" placeholder="Full name" class="form-control" ng-model="user.name"/>
       </div>
@@ -20,21 +20,34 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="username" class="col-md-4 control-label">Username</label>
+      <label for="username" class="col-md-4 control-label">Nome de usuario</label>
       <div class="col-md-8">
         <input id="username" type="text" name="username" placeholder="Username" class="form-control" ng-model="user.username"/>
       </div>
     </div>
     <div class="form-group">
-      <label for="password" class="col-md-4 control-label">Password</label>
+      <label for="password" class="col-md-4 control-label">Senha</label>
       <div class="col-md-8">
         <input id="password" type="password" name="password" placeholder="Password" class="form-control" ng-model="user.password"/>
       </div>
     </div>
     <div class="form-group">
-      <label for="confirmPassword" class="col-md-4 control-label">Repeat Password</label>
+      <label for="confirmPassword" class="col-md-4 control-label">Repita a Senha</label>
       <div class="col-md-8">
         <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Password" class="form-control" ng-model="user.confirmPassword"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="tipoUsuario" class="col-md-4 control-label">Tipo</label>
+      <div class="col-md-8">
+        <select id="tipoUsuario" name="tipoUsuario" class="form-control" ng-model="user.role" ng-options="tipo.name for tipo  in tiposUsuarios"></select>
+<!--         <select id="tipoUsuario" name="tipoUsuario" class="form-control" ng-model="user.tipoUsuario">
+          <option value="administrador">Administrador</option>
+          <option value="especialista">Especialista</option>
+          <option value="policial/bombeiro">Policial/Bombeiro</option>
+          <option value="agente">Agente externo/interno</option>
+          <option value="coordenador">Coordenador</option>
+        </select> -->
       </div>
     </div>
     <div class="form-group">
