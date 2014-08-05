@@ -1,0 +1,29 @@
+<section data-ng-controller="MissoesController">
+  <form name="missaoForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(missaoForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && missaoForm.title.$invalid }">
+      <label mean-token="'create-title'" class="col-md-3 control-label">Título</label>
+      <div class="col-md-9">
+        <input name="title" type="text" class="form-control" data-ng-model="title" id="title" placeholder="Título" required>
+        <div ng-show="submitted && missaoForm.title.$invalid" class="help-block">
+          <p ng-show="missaoForm.title.$error.required">Título obrigatório</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && missaoForm.content.$invalid }">
+      <label mean-token="'create-content'" for="content" class="col-md-3 control-label">Descrição</label>
+      <div class="col-md-9">
+        <textarea name="content" data-ng-model="content" id="content" cols="30" rows="10" placeholder="Descrição da missão" class="form-control" required></textarea>
+        <div ng-show="submitted && missaoForm.content.$invalid" class="help-block">
+          <p ng-show="missaoForm.content.$error.required">Descrição da missão obrigatória</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button type="submit" class="btn btn-info">Enviar</button>
+        &nbsp;<a ui-sref='missoes'>Cancel</a>
+      </div>
+    </div>
+  </form>
+</section>
