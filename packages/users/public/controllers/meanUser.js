@@ -12,6 +12,7 @@ angular.module('mean.users')
           password: $scope.user.password
         })
           .success(function(response) {
+            sessionStorage.roles = response.user.roles;
             // authentication OK
             $scope.loginError = 0;
             $rootScope.user = response.user;
@@ -48,7 +49,6 @@ angular.module('mean.users')
       $scope.register = function() {
         $scope.usernameError = null;
         $scope.registerError = null;
-        debugger
         $http.post('/register', {
           email: $scope.user.email,
           password: $scope.user.password,
