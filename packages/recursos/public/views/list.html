@@ -1,0 +1,24 @@
+<section data-ng-controller="RecursosController" data-ng-init="find()">
+  <a style="color: red" ui-sref='create recurso'>Criar recurso</a>
+  <br>
+  <br>
+  <ul class="articles unstyled">
+    <li data-ng-repeat="recurso in recursos">
+      <span>{{recurso.created | date:'medium'}}</span> /
+      <span>{{recurso.user.name}}</span>
+      <h2>
+        <a data-ng-href="#!/recursos/{{recurso._id}}">{{recurso.title}}</a>
+        <span data-ng-if="hasAuthorization(recurso)">
+          <a class="btn" href="/#!/recursos/{{recurso._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(recurso);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+      </h2>
+      <div>Quantidade disponível: {{recurso.quantidade}}</div>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!recursos || recursos.length">Nenhuma recurso cadastrado.</h1>
+</section>

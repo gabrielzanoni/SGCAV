@@ -1,0 +1,29 @@
+<section data-ng-controller="RecursosController">
+  <form name="recursoForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(recursoForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && recursoForm.title.$invalid }">
+      <label mean-token="'create-title'" class="col-md-3 control-label">Título</label>
+      <div class="col-md-9">
+        <input name="title" type="text" class="form-control" data-ng-model="title" id="title" placeholder="Título" required>
+        <div ng-show="submitted && recursoForm.title.$invalid" class="help-block">
+          <p ng-show="recursoForm.title.$error.required">Título obrigatório</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && recursoForm.quantidade.$invalid }">
+      <label mean-token="'create-quantidade'" for="quantidade" class="col-md-3 control-label">Quantidade</label>
+      <div class="col-md-9">
+        <input name="quantidade" data-ng-model="quantidade" id="quantidade" type="number" min="0" placeholder="Quantidade do recurso" class="form-control" required></textarea>
+        <div ng-show="submitted && recursoForm.quantidade.$invalid" class="help-block">
+          <p ng-show="recursoForm.quantidade.$error.required">Quantidade do recurso obrigatória</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button type="submit" class="btn btn-info">Enviar</button>
+        &nbsp;<a ui-sref='recursos'>Cancel</a>
+      </div>
+    </div>
+  </form>
+</section>
