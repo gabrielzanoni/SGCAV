@@ -1,0 +1,24 @@
+<section data-ng-controller="CenariosController" data-ng-init="find()">
+  <a style="color: red" ui-sref='create cenario'>Criar cenario</a>
+  <br>
+  <br>
+  <ul class="articles unstyled">
+    <li data-ng-repeat="cenario in cenarios">
+      <span>{{cenario.created | date:'medium'}}</span> /
+      <span>{{cenario.user.name}}</span>
+      <h2>
+        <a data-ng-href="#!/cenarios/{{cenario._id}}">{{cenario.title}}</a>
+        <span data-ng-if="hasAuthorization(cenario)">
+          <a class="btn" href="/#!/cenarios/{{cenario._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(cenario);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+      </h2>
+      <div>{{cenario.content}}</div>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!cenarios || cenarios.length">Nenhum cenario cadastrado.</h1>
+</section>

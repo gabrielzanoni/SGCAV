@@ -1,0 +1,28 @@
+<section data-ng-controller="CenariosController" data-ng-init="findOne()">
+  <form name="cenarioForm" class="form-horizontal col-md-6" role="form" data-ng-submit="update(cenarioForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && cenarioForm.title.$invalid }">
+      <label mean-token="'edit-title'" for="title" class="col-md-2 control-label">Título</label>
+      <div class="col-md-10">
+        <input name="title" type="text" class="form-control" data-ng-model="cenario.title" id="title" placeholder="Título" required>
+        <div ng-show="submitted && cenarioForm.title.$invalid" class="help-block">
+          <p ng-show="cenarioForm.title.$error.required">Título obrigatório</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && cenarioForm.content.$invalid }">
+      <label mean-token="'edit-content'" for="content" class="col-md-2 control-label">Descrição da cenario</label>
+      <div class="col-md-10">
+        <textarea name="content" data-ng-model="cenario.content" id="content" cols="30" rows="10" placeholder="Descrição da cenario" class="form-control" required></textarea>
+        <div ng-show="submitted && cenarioForm.content.$invalid" class="help-block">
+          <p ng-show="cenarioForm.content.$error.required">Descrição da cenario obrigatória</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <button mean-token="'edit-submit'" type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
