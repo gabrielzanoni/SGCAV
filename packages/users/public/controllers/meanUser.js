@@ -39,7 +39,6 @@ angular.module('mean.users')
       $scope.user = {};
 
       $scope.tiposUsuarios = [
-        {name:'Administrador', value:'administrador'},
         {name:'Especialista', value:'especialista'},
         {name:'Policial/Bombeiro', value:'policial/bombeiro'},
         {name:'Agente externo/interno', value:'agente'},
