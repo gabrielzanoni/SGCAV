@@ -13,7 +13,9 @@ angular.module('mean.users')
         })
           .success(function(response) {
             sessionStorage.roles = response.user.roles;
+            sessionStorage._id = response.user._id;
             // authentication OK
+            console.log(response.user);
             $scope.loginError = 0;
             $rootScope.user = response.user;
             $rootScope.$emit('loggedin');

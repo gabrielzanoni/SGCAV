@@ -6,7 +6,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 
     $scope.hasAuthorization = function(article) {
       if (!article || !article.user) return false;
-      return $scope.global.isAdmin || article.user._id === $scope.global.user._id || sessionStorage.roles.indexOf('administrador') >= 0;
+      return $scope.global.isAdmin || article.user._id === sessionStorage._id || sessionStorage.roles.indexOf('administrador') >= 0;
     };
 
     $scope.create = function(isValid) {
