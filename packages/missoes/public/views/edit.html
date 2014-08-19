@@ -19,6 +19,24 @@
         </div>
       </div>
     </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && missaoForm.acidente.$invalid }">
+      <label mean-token="'edit-acidente'" class="col-md-3 control-label">Acidente</label>
+      <div class="col-md-9">
+        <input name="acidente" type="text" class="form-control" data-ng-model="missao.acidente" id="acidente" placeholder="Título" required>
+        <div ng-show="submitted && missaoForm.acidente.$invalid" class="help-block">
+          <p ng-show="missaoForm.acidente.$error.required">Acidente obrigatório</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && missaoForm.Recursos.$invalid }">
+      <label mean-token="'edit-Recursos'" class="col-md-3 control-label">Recursos</label>
+      <div class="col-md-9">
+        <input name="Recursos" type="text" class="form-control" data-ng-model="missao.recursos" id="Recursos" placeholder="Título" required>
+        <div ng-show="submitted && missaoForm.Recursos.$invalid" class="help-block">
+          <p ng-show="missaoForm.Recursos.$error.required">Recurso obrigatório</p>
+        </div>
+      </div>
+    </div>
     <div class="form-group">
       <div class="col-md-offset-2 col-md-10">
         <button mean-token="'edit-submit'" type="submit" class="btn btn-default">Submit</button>

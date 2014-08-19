@@ -13,7 +13,9 @@ angular.module('mean.missoes').controller('MissoesController', ['$scope', '$stat
       if (isValid) {
         var missao = new Missoes({
           title: this.title,
-          content: this.content
+          content: this.content,
+          acidente: this.acidente,
+          recursos: this.recursos
         });
         missao.$save(function(response) {
           $location.path('missoes/' + response._id);

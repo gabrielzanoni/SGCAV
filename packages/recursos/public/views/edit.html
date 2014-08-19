@@ -11,9 +11,9 @@
 
     </div>
     <div class="form-group" ng-class="{ 'has-error' : submitted && recursoForm.quantidade.$invalid }">
-      <label mean-token="'create-quantidade'" for="quantidade" class="col-md-3 control-label">Quantidade</label>
+      <label mean-token="'edit-quantidade'" for="quantidade" class="col-md-3 control-label">Quantidade</label>
       <div class="col-md-9">
-        <input name="quantidade" data-ng-model="quantidade" id="quantidade" type="number" min="0" placeholder="Quantidade do recurso" class="form-control" required></textarea>
+        <input name="quantidade" data-ng-model="recurso.quantidade" id="quantidade" type="number" min="0" placeholder="Quantidade do recurso" class="form-control" required></textarea>
         <div ng-show="submitted && recursoForm.quantidade.$invalid" class="help-block">
           <p ng-show="recursoForm.quantidade.$error.required">Quantidade do recurso obrigatória</p>
         </div>

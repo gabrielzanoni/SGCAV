@@ -25,6 +25,15 @@ var MissaoSchema = new Schema({
     required: true,
     trim: true
   },
+  recursos: {
+    type: String,
+    trim: true
+  },
+  acidente: {
+    type: String,
+    required: true,
+    trim: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

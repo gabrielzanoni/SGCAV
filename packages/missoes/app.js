@@ -20,7 +20,7 @@ Missoes.register(function(app, auth, database) {
     Missoes.menus.add({
         title: 'Missoes',
         link: 'missoes',
-        roles: ['administrador', 'policial/bombeiro','agente']
+        roles: ['administrador', 'policial/bombeiro','agente', 'coordenador']
     });
 
     /**

@@ -20,7 +20,7 @@ Recursos.register(function(app, auth, database) {
     Recursos.menus.add({
         title: 'Recursos',
         link: 'recursos',
-        roles: ['administrador', 'especialista'],
+        roles: ['administrador', 'especialista', 'coordenador'],
     });
 
     /**
