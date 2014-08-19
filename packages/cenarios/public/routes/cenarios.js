@@ -19,6 +19,10 @@ angular.module('mean.cenarios').config(['$stateProvider',
         .state('cenario by id', {
           url: '/cenarios/:cenarioId',
           templateUrl: 'cenarios/views/view.html'
+        })
+        .state('gerar relatorio', {
+          url: '/cenarios/relatorio',
+          templateUrl: 'cenarios/views/relatorio.pdf'
         });
     }
 ]);

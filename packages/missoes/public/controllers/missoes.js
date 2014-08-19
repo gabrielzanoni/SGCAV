@@ -42,6 +42,16 @@ angular.module('mean.missoes').controller('MissoesController', ['$scope', '$stat
       }
     };
 
+    $scope.save = function(missao) {
+      if (!missao.updated) {
+        missao.updated = [];
+      }
+      missao.updated.push(new Date().getTime());
+
+      missao.$update(function() {
+      });
+    };
+
     $scope.update = function(isValid) {
       if (isValid) {
         var missao = $scope.missao;

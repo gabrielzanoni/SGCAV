@@ -28,6 +28,10 @@ var MissaoSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  solved: {
+    type: Boolean,
+    default: false
   }
 });
 
