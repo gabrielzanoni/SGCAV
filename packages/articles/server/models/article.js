@@ -25,9 +25,18 @@ var ArticleSchema = new Schema({
     required: true,
     trim: true
   },
+  endereco: {
+    type: String,
+    required: true,
+    trim: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  solved: {
+    type: Boolean,
+    default: false
   }
 });
 

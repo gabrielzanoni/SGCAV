@@ -17,24 +17,24 @@
           <a class="btn" data-ng-click="remove(missao);">
             <i class="glyphicon glyphicon-trash"></i>
           </a>
-          <label class="switch-light switch-android" ng-click="save(missao)" style="
-              width: 150px;
-              font-size: 12px;
-              display: inline-block;
-              margin-left: 20px;
-              margin-bottom: 0;
-          ">
-            <input type="checkbox" ng-model="missao.solved">
-            <span>
-              Wireless
-              <span>Pendente</span>
-              <span>OK</span>
-            </span>
-
-            <a></a>
-          </label>
         </span>
       </h2>
+      <label class="switch-light switch-android" ng-click="save(missao)" style="
+          width: 150px;
+          font-size: 12px;
+          display: inline-block;
+          margin-left: 20px;
+          margin-bottom: 0;
+      ">
+        <input type="checkbox" ng-model="missao.solved">
+        <span>
+          Wireless
+          <span>Pendente</span>
+          <span>OK</span>
+        </span>
+
+        <a></a>
+      </label>
       <div>Descrição: {{missao.content}}</div>
       <div>Acidente: {{missao.acidente}}</div>
       <div>Recursos: {{missao.recursos}}</div>

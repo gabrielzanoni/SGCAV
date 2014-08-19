@@ -13,7 +13,8 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
       if (isValid) {
         var article = new Articles({
           title: this.title,
-          content: this.content
+          content: this.content,
+          endereco: this.endereco
         });
         article.$save(function(response) {
           $location.path('acidentes/' + response._id);
@@ -56,6 +57,16 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
       } else {
         $scope.submitted = true;
       }
+    };
+
+    $scope.save = function(article) {
+      if (!article.updated) {
+        article.updated = [];
+      }
+      article.updated.push(new Date().getTime());
+
+      article.$update(function() {
+      });
     };
 
     $scope.find = function() {

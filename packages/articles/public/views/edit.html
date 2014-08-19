@@ -19,6 +19,15 @@
         </div>
       </div>
     </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.endereco.$invalid }">
+      <label mean-token="'create-endereco'" for="endereco" class="col-md-3 control-label">Endereco</label>
+      <div class="col-md-9">
+        <textarea name="endereco" data-ng-model="article.endereco" id="endereco" cols="30" rows="10" placeholder="Endereco do acidente" class="form-control" required></textarea>
+        <div ng-show="submitted && articleForm.endereco.$invalid" class="help-block">
+          <p ng-show="articleForm.endereco.$error.required">Endereco</p>
+        </div>
+      </div>
+    </div>
     <div class="form-group">
       <div class="col-md-offset-2 col-md-10">
         <button mean-token="'edit-submit'" type="submit" class="btn btn-default">Submit</button>
