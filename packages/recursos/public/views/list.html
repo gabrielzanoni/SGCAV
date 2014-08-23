@@ -17,7 +17,14 @@
           </a>
         </span>
       </h2>
+      <div class="form-group">
+        <label for="missaoAlocada" class="col-md-4 control-label">Missao: </label>
+        <div class="col-md-8">
+          <select id="missaoAlocada" name="missaoAlocada" class="form-control" ng-model="recurso.missao" ng-options="missao.title as missao.title for missao in missoes" ng-change="missaoEscolhida(recurso)"></select>
+        </div>
+      </div>
       <div>Quantidade disponível: {{recurso.quantidade}}</div>
+      <div>Missao: {{recurso.missao}}</div>
     </li>
   </ul>
   <h1 data-ng-hide="!recursos || recursos.length">Nenhuma recurso cadastrado.</h1>

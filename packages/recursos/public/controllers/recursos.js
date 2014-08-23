@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.recursos').controller('RecursosController', ['$scope', '$stateParams', '$location', 'Global', 'Recursos',
-  function($scope, $stateParams, $location, Global, Recursos) {
+angular.module('mean.recursos').controller('RecursosController', ['$scope', '$stateParams', '$location', 'Global', 'Recursos', 'Missoes',
+  function($scope, $stateParams, $location, Global, Recursos, Missoes) {
     $scope.global = Global;
 
     $scope.hasAuthorization = function(recurso) {
@@ -58,6 +58,12 @@ angular.module('mean.recursos').controller('RecursosController', ['$scope', '$st
       }
     };
 
+    $scope.getMissoes = function() {
+      Missoes.query(function(missoes) {
+        $scope.missoes = missoes;
+      });
+    };
+
     $scope.find = function() {
       Recursos.query(function(recursos) {
         $scope.recursos = recursos;
@@ -71,5 +77,22 @@ angular.module('mean.recursos').controller('RecursosController', ['$scope', '$st
         $scope.recurso = recurso;
       });
     };
+
+    $scope.save = function(recurso) {
+      if (!recurso.updated) {
+        recurso.updated = [];
+      }
+      recurso.updated.push(new Date().getTime());
+
+      recurso.$update(function() {
+      });
+    };
+
+    $scope.missaoEscolhida = function(recurso) {
+      console.log(recurso);
+      $scope.save(recurso);
+    };
+
+    $scope.missoes = $scope.getMissoes();
   }
 ]);

@@ -24,6 +24,10 @@ var RecursoSchema = new Schema({
     type: Number,
     required: true
   },
+  missao: {
+    type: String,
+    required: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
