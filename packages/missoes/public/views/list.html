@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../bower_components/css-toggle-switch/dist/toggle-switch.css">
 
 <section data-ng-controller="MissoesController" data-ng-init="find()">
-  <a style="color: red" ui-sref='create missao'>Cadastrar quarto</a>
+  <a style="color: red" ui-sref='create missao' ng-if="hasAuthorization()">Cadastrar quarto</a>
   <br>
   <br>
   <ul class="articles unstyled">
@@ -25,7 +25,7 @@
           margin-bottom: 0;
       ">
       </label>
-      <button class="btn btn-info"> Reservar quarto </button>
+      <button ng-if="isUser()" class="btn btn-info"> Reservar quarto </button>
       <div style="display: block;">Reservado por: <strong>Cliente</strong></div>
     </li>
   </ul>

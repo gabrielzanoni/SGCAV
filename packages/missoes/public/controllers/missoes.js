@@ -4,9 +4,12 @@ angular.module('mean.missoes').controller('MissoesController', ['$scope', '$stat
   function($scope, $stateParams, $location, Global, Missoes) {
     $scope.global = Global;
 
-    $scope.hasAuthorization = function(missao) {
-      if (!missao || !missao.user) return false;
-      return $scope.global.isAdmin || missao.user._id === $scope.global.user._id || sessionStorage.roles.indexOf('administrador') >= 0 || sessionStorage.roles.indexOf('policial/bombeiro') >= 0;
+    $scope.hasAuthorization = function() {
+      return sessionStorage.roles.indexOf('gerente') >= 0;
+    };
+
+    $scope.isUser = function() {
+      return sessionStorage.roles.indexOf('cliente') >= 0;
     };
 
     $scope.create = function(isValid) {
