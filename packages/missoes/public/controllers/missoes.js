@@ -9,7 +9,7 @@ angular.module('mean.missoes').controller('MissoesController', ['$scope', '$stat
     };
 
     $scope.isUser = function() {
-      return sessionStorage.roles.indexOf('clieten') >= 0;
+      return sessionStorage.roles.indexOf('cliente') >= 0;
     };
 
     $scope.create = function(isValid) {
