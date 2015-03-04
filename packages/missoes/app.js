@@ -18,9 +18,9 @@ Missoes.register(function(app, auth, database) {
 
     //We are adding a link to the main menu for all authenticated users
     Missoes.menus.add({
-        title: 'Missoes',
+        title: 'Reservas',
         link: 'missoes',
-        roles: ['administrador', 'policial/bombeiro','agente', 'coordenador']
+        roles: ['cliente', 'gerente']
     });
 
     /**

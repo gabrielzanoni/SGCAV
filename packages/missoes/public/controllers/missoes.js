@@ -12,17 +12,13 @@ angular.module('mean.missoes').controller('MissoesController', ['$scope', '$stat
     $scope.create = function(isValid) {
       if (isValid) {
         var missao = new Missoes({
-          title: this.title,
-          content: this.content,
-          acidente: this.acidente,
-          recursos: this.recursos
+          title: this.title
         });
         missao.$save(function(response) {
           $location.path('missoes/' + response._id);
         });
 
         this.title = '';
-        this.content = '';
       } else {
         $scope.submitted = true;
       }

@@ -1,15 +1,13 @@
 <link rel="stylesheet" type="text/css" href="../../../../bower_components/css-toggle-switch/dist/toggle-switch.css">
 
 <section data-ng-controller="MissoesController" data-ng-init="find()">
-  <a style="color: red" ui-sref='create missao'>Criar missao</a>
+  <a style="color: red" ui-sref='create missao'>Cadastrar quarto</a>
   <br>
   <br>
   <ul class="articles unstyled">
     <li data-ng-repeat="missao in missoes">
-      <span>{{missao.created | date:'medium'}}</span> /
-      <span>{{missao.user.name}}</span>
-      <h2>
-        <a data-ng-href="#!/missoes/{{missao._id}}">{{missao.title}}</a>
+      <h3 style="display: inline-block;">
+        <span>{{missao.title}}</span>
         <span data-ng-if="hasAuthorization(missao)">
           <a class="btn" href="/#!/missoes/{{missao._id}}/edit">
             <i class="glyphicon glyphicon-edit"></i>
@@ -26,19 +24,10 @@
           margin-left: 20px;
           margin-bottom: 0;
       ">
-        <input type="checkbox" ng-model="missao.solved">
-        <span>
-          Wireless
-          <span>Pendente</span>
-          <span>OK</span>
-        </span>
-
-        <a></a>
       </label>
-      <div>Descrição: {{missao.content}}</div>
-      <div>Acidente: {{missao.acidente}}</div>
-      <div>Recursos: {{missao.recursos}}</div>
+      <button class="btn btn-info"> Reservar quarto </button>
+      <div style="display: block;">Reservado por: <strong>Cliente</strong></div>
     </li>
   </ul>
-  <h1 data-ng-hide="!missoes || missoes.length">Nenhuma missao cadastrada.</h1>
+  <h1 data-ng-hide="!missoes || missoes.length">Nenhum quarto cadastrado.</h1>
 </section>
