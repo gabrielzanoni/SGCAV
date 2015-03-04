@@ -7,7 +7,7 @@ module.exports = {
   root: rootPath,
   port: process.env.PORT || 3000,
   hostname: process.env.HOST || process.env.HOSTNAME,
-  db: process.env.MONGOHQ_URL,
+  db: "mongodb://heroku_app34575112:heroku_app34575112@dbh44.mongolab.com:27447/heroku_app34575112",
   templateEngine: 'swig',
 
   // The secret should be set to a non-guessable string that
