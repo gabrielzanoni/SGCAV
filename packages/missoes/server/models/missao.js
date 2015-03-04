@@ -19,28 +19,6 @@ var MissaoSchema = new Schema({
     type: String,
     required: true,
     trim: true
-  },
-  content: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  recursos: {
-    type: String,
-    trim: true
-  },
-  acidente: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
-  },
-  solved: {
-    type: Boolean,
-    default: false
   }
 });
 
@@ -50,10 +28,6 @@ var MissaoSchema = new Schema({
 MissaoSchema.path('title').validate(function(title) {
   return !!title;
 }, 'Title cannot be blank');
-
-MissaoSchema.path('content').validate(function(content) {
-  return !!content;
-}, 'Content cannot be blank');
 
 /**
  * Statics

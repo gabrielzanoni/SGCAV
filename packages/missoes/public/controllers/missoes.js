@@ -4,25 +4,24 @@ angular.module('mean.missoes').controller('MissoesController', ['$scope', '$stat
   function($scope, $stateParams, $location, Global, Missoes) {
     $scope.global = Global;
 
-    $scope.hasAuthorization = function(missao) {
-      if (!missao || !missao.user) return false;
-      return $scope.global.isAdmin || missao.user._id === $scope.global.user._id || sessionStorage.roles.indexOf('administrador') >= 0 || sessionStorage.roles.indexOf('policial/bombeiro') >= 0;
+    $scope.hasAuthorization = function() {
+      return sessionStorage.roles.indexOf('gerente') >= 0;
+    };
+
+    $scope.isUser = function() {
+      return sessionStorage.roles.indexOf('clieten') >= 0;
     };
 
     $scope.create = function(isValid) {
       if (isValid) {
         var missao = new Missoes({
-          title: this.title,
-          content: this.content,
-          acidente: this.acidente,
-          recursos: this.recursos
+          title: this.title
         });
         missao.$save(function(response) {
           $location.path('missoes/' + response._id);
         });
 
         this.title = '';
-        this.content = '';
       } else {
         $scope.submitted = true;
       }

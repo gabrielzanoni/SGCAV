@@ -41,10 +41,8 @@ angular.module('mean.users')
       $scope.user = {};
 
       $scope.tiposUsuarios = [
-        {name:'Especialista', value:'especialista'},
-        {name:'Policial/Bombeiro', value:'policial/bombeiro'},
-        {name:'Agente externo/interno', value:'agente'},
-        {name:'Coordenador', value:'coordenador'}
+        {name:'Cliente', value:'cliente'},
+        {name:'Gerente', value:'gerente'},
       ];
 
       $scope.register = function() {
