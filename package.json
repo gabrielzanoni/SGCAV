@@ -36,7 +36,7 @@
     "npm": "1.3.x"
   },
   "scripts": {
-    "start": "node app",
+    "start": "node server",
     "postinstall": "node node_modules/.bin/gulp default",
     "test": "node node_modules/grunt-cli/bin/grunt test"
   },
