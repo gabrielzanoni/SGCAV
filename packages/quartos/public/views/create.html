@@ -1,0 +1,20 @@
+<section data-ng-controller="QuartosController">
+  <form name="quartoForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(quartoForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && quartoForm.title.$invalid }">
+      <label mean-token="'create-title'" class="col-md-3 control-label">Nome do quarto</label>
+      <div class="col-md-9">
+        <input name="title" type="text" class="form-control" data-ng-model="title" id="title" placeholder="Título" required>
+        <div ng-show="submitted && quartoForm.title.$invalid" class="help-block">
+          <p ng-show="quartoForm.title.$error.required">Nome obrigatório</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button type="submit" class="btn btn-info">Enviar</button>
+        &nbsp;<a ui-sref='quartos'>Cancel</a>
+      </div>
+    </div>
+  </form>
+</section>
