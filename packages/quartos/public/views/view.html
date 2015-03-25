@@ -1,0 +1,13 @@
+<section data-ng-controller="QuartosController" data-ng-init="findOne()">
+  <span>{{quarto.created | date:'medium'}}</span> /
+  <span>{{quarto.user.name}}</span>
+  <h2>{{quarto.title}}</h2>
+  <div data-ng-if="hasAuthorization(quarto)">
+    <a class="btn" href="/#!/quartos/{{quarto._id}}/edit">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn" data-ng-click="remove(quarto);">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+</section>

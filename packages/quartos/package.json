@@ -1,7 +1,7 @@
 {
-    "name": "missoes",
+    "name": "quartos",
     "version": "0.0.1",
-    "description": "Some description of missoes",
+    "description": "Some description of quartos",
     "author": {
         "name": "mean scaffold"
     },

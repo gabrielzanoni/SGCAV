@@ -1,23 +1,23 @@
 <link rel="stylesheet" type="text/css" href="../../../../bower_components/css-toggle-switch/dist/toggle-switch.css">
 
-<section data-ng-controller="MissoesController" data-ng-init="find()">
-  <a style="color: red" ui-sref='create missao' ng-if="hasAuthorization()">Cadastrar quarto</a>
+<section data-ng-controller="QuartosController" data-ng-init="find()">
+  <a style="color: red" ui-sref='create quarto' ng-if="hasAuthorization()">Cadastrar quarto</a>
   <br>
   <br>
   <ul class="articles unstyled">
-    <li data-ng-repeat="missao in missoes">
+    <li data-ng-repeat="quarto in quartos">
       <h3 style="display: inline-block;">
-        <span>{{missao.title}}</span>
-        <span data-ng-if="hasAuthorization(missao)">
-          <a class="btn" href="/#!/missoes/{{missao._id}}/edit">
+        <span>{{quarto.title}}</span>
+        <span data-ng-if="hasAuthorization(quarto)">
+          <a class="btn" href="/#!/quartos/{{quarto._id}}/edit">
             <i class="glyphicon glyphicon-edit"></i>
           </a>
-          <a class="btn" data-ng-click="remove(missao);">
+          <a class="btn" data-ng-click="remove(quarto);">
             <i class="glyphicon glyphicon-trash"></i>
           </a>
         </span>
       </h2>
-      <label class="switch-light switch-android" ng-click="save(missao)" style="
+      <label class="switch-light switch-android" ng-click="save(quarto)" style="
           width: 150px;
           font-size: 12px;
           display: inline-block;
@@ -29,5 +29,5 @@
       <div style="display: block;">Reservado por: <strong>Cliente</strong></div>
     </li>
   </ul>
-  <h1 data-ng-hide="!missoes || missoes.length">Nenhum quarto cadastrado.</h1>
+  <h1 data-ng-hide="!quartos || quartos.length">Nenhum quarto cadastrado.</h1>
 </section>

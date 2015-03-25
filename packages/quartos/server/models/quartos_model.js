@@ -8,9 +8,9 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Missao Schema
+ * Quarto Schema
  */
-var MissaoSchema = new Schema({
+var QuartoSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
@@ -25,17 +25,17 @@ var MissaoSchema = new Schema({
 /**
  * Validations
  */
-MissaoSchema.path('title').validate(function(title) {
+QuartoSchema.path('title').validate(function(title) {
   return !!title;
 }, 'Title cannot be blank');
 
 /**
  * Statics
  */
-MissaoSchema.statics.load = function(id, cb) {
+QuartoSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
   }).populate('user', 'name username').exec(cb);
 };
 
-mongoose.model('Missao', MissaoSchema);
+mongoose.model('Quarto', QuartoSchema);

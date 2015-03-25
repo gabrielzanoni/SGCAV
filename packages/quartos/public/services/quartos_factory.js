@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('mean.missoes').factory('Missoes', [ '$resource',
+angular.module('mean.quartos').factory('Quartos', [ '$resource',
     function($resource) {
-      return $resource('missoes/:missaoId', {
+      return $resource('quartos/:quartoId', {
         missaoId: '@_id'
       }, {
         update: {
