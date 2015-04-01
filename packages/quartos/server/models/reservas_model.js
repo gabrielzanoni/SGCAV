@@ -23,11 +23,11 @@ var ReservaSchema = new Schema({
     type: Date,
     required: true
   },
-  valor: {
+  value: {
     type: Number,
     required: true
   },
-  cliente: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  client: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 
@@ -44,7 +44,7 @@ var ReservaSchema = new Schema({
 ReservaSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
-  }).populate('cliente').exec(cb);
+  }).populate('client').exec(cb);
 };
 
 mongoose.model('Reserva', ReservaSchema);
