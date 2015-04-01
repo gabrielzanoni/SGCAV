@@ -15,19 +15,32 @@ var QuartoSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  title: {
-    type: String,
+  number: {
+    type: Number,
     required: true,
-    trim: true
-  }
+    unique: true
+  },
+  status: {
+    type: Number,
+    default: 0
+  },
+  daily_price: {
+    type: Number,
+    default: 60
+  },
+  accomodation: {
+    type: Number,
+    default: 2
+  },
+  reservations: [{ type: Schema.Types.ObjectId, ref: 'Reserva' }]
 });
 
-/**
- * Validations
- */
-QuartoSchema.path('title').validate(function(title) {
-  return !!title;
-}, 'Title cannot be blank');
+// /**
+//  * Validations
+//  */
+// QuartoSchema.path('title').validate(function(title) {
+//   return !!title;
+// }, 'Title cannot be blank');
 
 /**
  * Statics
@@ -35,7 +48,7 @@ QuartoSchema.path('title').validate(function(title) {
 QuartoSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
-  }).populate('user', 'name username').exec(cb);
+  }).populate('reservations').exec(cb);
 };
 
 mongoose.model('Quarto', QuartoSchema);

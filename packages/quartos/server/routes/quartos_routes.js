@@ -19,6 +19,10 @@ module.exports = function(Quartos, app, auth) {
     .get(quartos.show)
     .put(auth.requiresLogin, hasAuthorization, quartos.update)
     .delete(auth.requiresLogin, hasAuthorization, quartos.destroy);
+  app.route('/quarto')
+    .put(quartos.create);
+  app.route('/quarto')
+    .post(quartos.update);
 
   // Finish with setting up the quartoId param
   app.param('quartoId', quartos.quarto);
