@@ -47,4 +47,27 @@ ReservaSchema.statics.load = function(id, cb) {
   }).populate('client').exec(cb);
 };
 
+/**
+* Get Specific Date
+*/
+ReservaSchema.statics.getIds = function (startDate, endDate, cb) {
+  this.find({
+    date_in: startDate,
+    date_out: endDate
+  }, function (err, data){
+    if (err) {
+      cb(err);
+    } else {
+      var ids = [];
+
+      data.forEach(function(reservation) {
+        ids.push(reservation._id);
+      });
+
+      cb(null, ids);
+    };
+  });
+};
+
+
 mongoose.model('Reserva', ReservaSchema);
