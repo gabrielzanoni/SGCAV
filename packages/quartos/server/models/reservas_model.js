@@ -65,7 +65,7 @@ ReservaSchema.statics.getIds = function (startDate, endDate, cb) {
       });
 
       cb(null, ids);
-    };
+    }
   });
 };
 

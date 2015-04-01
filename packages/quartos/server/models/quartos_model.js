@@ -23,7 +23,7 @@ var QuartoSchema = new Schema({
   status: {
     type: String,
     enum: ['LIVRE', 'OCUPADO', 'RESERVADO'],
-    default: "LIVRE"
+    default: 'LIVRE'
   },
   daily_price: {
     type: Number,
@@ -57,13 +57,13 @@ QuartoSchema.statics.load = function(id, cb) {
  */
 QuartoSchema.statics.getWithReservation = function (cb) {
   this.find({
-    $where: "this.reservations.length > 0" 
+    $where: 'this.reservations.length > 0'
   }, function (err, data){
     if (err) {
       cb(err);
     } else {
       cb(null, data);
-    };
+    }
   });
 };
 
@@ -76,7 +76,7 @@ QuartoSchema.statics.getAll = function (cb) {
       cb(err);
     } else {
       cb(null, data);
-    };
+    }
   });
 };
 
@@ -91,7 +91,7 @@ QuartoSchema.statics.getFree = function (ids, cb) {
       cb(err);
     } else {
       cb(null, data);
-    };
+    }
   });
 };
 
@@ -99,12 +99,12 @@ QuartoSchema.statics.getFree = function (ids, cb) {
  * Get all Rooms 
  */
 QuartoSchema.statics.checkin = function (id, cb) {
-  this.update(id, { status: 'OCUPADO' }, { upsert: false } function (err){
+  this.update(id, { status: 'OCUPADO' }, { upsert: false }, function (err){
     if (err) {
       cb(err);
     } else {
       cb(null);
-    };
+    }
   });
 };
 
@@ -112,12 +112,12 @@ QuartoSchema.statics.checkin = function (id, cb) {
  * Get all Rooms 
  */
 QuartoSchema.statics.checkout = function (id, cb) {
-  this.update(id, { status: 'LIVRE' }, { upsert: false } function (err){
+  this.update(id, { status: 'LIVRE' }, { upsert: false }, function (err){
     if (err) {
       cb(err);
     } else {
       cb(null);
-    };
+    }
   });
 };
 

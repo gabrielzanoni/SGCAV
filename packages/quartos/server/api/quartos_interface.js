@@ -6,7 +6,7 @@
 var mongoose = require('mongoose'),
   Quarto = mongoose.model('Quarto'),
   Reserva = mongoose.model('Reserva'),
-  error = { error: "There was an error." };
+  error = { error: 'There was an error.' };
 
 
 /**
@@ -22,8 +22,8 @@ exports.reservas = function(req, res) {
       res.json(error);  
     } else {
       res.json({results: data });
-    };
-  })
+    }
+  });
 };
 
 /**
@@ -35,8 +35,8 @@ exports.quartos = function(req, res) {
       res.json(error);  
     } else {
       res.json({results: data });
-    };
-  })
+    }
+  });
 };
 
 /**
@@ -55,9 +55,9 @@ exports.quartos_livres = function(req, res) {
           res.json(error);  
         } else {
           res.json({results: data });
-        };
-      })
-    };
+        }
+      });
+    }
   });
 };
 
@@ -65,12 +65,12 @@ exports.quartos_livres = function(req, res) {
  * Return a specific room provided by an id
  */
 exports.quarto = function(req, res) {
-  Quarto.findOnde(req.id, function (err, data){
+  Quarto.findOne(req.id, function (err, data){
     if (err) {
       res.json(error);  
     } else {
       res.json({results: data });
-    };
+    }
   });
 };
 
@@ -86,8 +86,8 @@ exports.checkin = function(req, res) {
     if (err) {
       res.json(error);  
     } else {
-      res.json({results: "Success"});
-    };
+      res.json({results: 'Success'});
+    }
   });
 };
 
@@ -99,7 +99,7 @@ exports.checkout = function(req, res) {
     if (err) {
       res.json(error);  
     } else {
-      res.json({results: "Success"});
-    };
+      res.json({results: 'Success'});
+    }
   });
 };
