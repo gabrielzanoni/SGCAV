@@ -58,26 +58,14 @@ QuartoSchema.statics.load = function(id, cb) {
 QuartoSchema.statics.getWithReservation = function (cb) {
   this.find({
     $where: 'this.reservations.length > 0'
-  }, function (err, data){
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, data);
-    }
-  });
+  }).populate('reservations').exec(cb);
 };
 
 /**
  * Get all Rooms
  */
 QuartoSchema.statics.getAll = function (cb) {
-  this.find({}, function (err, data){
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, data);
-    }
-  });
+  this.find({}).populate('reservations').exec(cb);
 };
 
 /**
@@ -85,14 +73,8 @@ QuartoSchema.statics.getAll = function (cb) {
  */
 QuartoSchema.statics.getFree = function (ids, cb) {
   this.find({
-    _id: { $nin: ids }
-  }, function (err, data){
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, data);
-    }
-  });
+    reservations: { $nin: ids }
+  }).populate('reservations').exec(cb);
 };
 
 /**

@@ -52,9 +52,42 @@ ReservaSchema.statics.load = function(id, cb) {
 */
 ReservaSchema.statics.getIds = function (startDate, endDate, cb) {
   this.find({
-    date_in: startDate,
-    date_out: endDate
+
+
+    $or : [
+      //      |   *    |     *
+      {
+        $and : [
+          { date_in :  { $lte : new Date(startDate) } } ,
+          { date_out : { $lte: new Date(endDate) } }
+        ]
+      },
+      //          *    |     *    |
+      {
+        $and : [
+          { date_in :  { $gte: new Date(startDate) } } ,
+          { date_out : { $gte: new Date(endDate) } }
+        ]
+      },
+      //          *  |   |   *
+      {
+        $and : [
+          { date_in :  { $gte: new Date(startDate) } } ,
+          { date_out : { $lte: new Date(endDate) } }
+        ]
+      },
+      //       |  *          *   |
+      {
+        $and : [
+          { date_in :  { $lte: new Date(startDate) } } ,
+          { date_out : { $gte: new Date(endDate) } }
+        ]
+      }
+    ]
+
   }, function (err, data){
+
+    console.log(err);
     if (err) {
       cb(err);
     } else {

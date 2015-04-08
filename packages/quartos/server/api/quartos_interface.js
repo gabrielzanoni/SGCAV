@@ -106,11 +106,6 @@ exports.checkout = function(req, res) {
 
 exports.reserva = function(req, res) {
 
-  var date_in = new Date(req.body.reservation.date_in),
-       date_out = new Date(req.body.reservation.date_out);
-
-  req.body.reservation.value = req.body.daily_value * Math.floor((date_out.getTime()-date_in.getTime())/(1000*60*60*24)) * 0.1;
-
   var reservation = new Reserva(req.body.reservation);
 
   reservation.save(function(err) {
