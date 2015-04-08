@@ -13,7 +13,7 @@ var checkRoomValidations = function (req, res) {
 
   //Validations
   req.assert('number', 'You must enter a room number').notEmpty();
-  req.assert('status', 'You must enter a valid status for the room').notEmpty();
+  // req.assert('status', 'You must enter a valid status for the room').notEmpty();
   // req.assert('daily_price', 'You must enter a daily price for the room').notEmpty(); // Default 60
   // req.assert('accomodation', 'Number of people accomodet in the room is required').notEmpty(); // Default 2
 

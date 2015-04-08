@@ -18,7 +18,7 @@ Quartos.register(function(app, auth, database) {
 
     //We are adding a link to the main menu for all authenticated users
     Quartos.menus.add({
-        title: 'Reservas',
+        title: '',
         link: 'quartos',
         roles: ['cliente', 'gerente']
     });

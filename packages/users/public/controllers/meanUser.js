@@ -52,7 +52,8 @@ angular.module('mean.users')
           email: $scope.user.email,
           password: $scope.user.password,
           confirmPassword: $scope.user.confirmPassword,
-          username: $scope.user.username,
+          cpf: $scope.user.cpf,
+          phone: $scope.user.phone,
           name: $scope.user.name,
           roles: $scope.user.role.value
         })
