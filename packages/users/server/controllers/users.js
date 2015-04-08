@@ -76,12 +76,6 @@ exports.create = function(req, res, next) {
             param: 'email'
           }]);
           break;
-        case 11001:
-          res.status(400).send([{
-            msg: 'Username already taken',
-            param: 'username'
-          }]);
-          break;
         default:
           var modelErrors = [];
 
