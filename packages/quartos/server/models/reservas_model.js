@@ -27,7 +27,7 @@ var ReservaSchema = new Schema({
     type: Number,
     required: true
   },
-  client: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 
@@ -44,7 +44,7 @@ var ReservaSchema = new Schema({
 ReservaSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
-  }).populate('client').exec(cb);
+  }).exec(cb);
 };
 
 /**
@@ -68,6 +68,5 @@ ReservaSchema.statics.getIds = function (startDate, endDate, cb) {
     }
   });
 };
-
 
 mongoose.model('Reserva', ReservaSchema);

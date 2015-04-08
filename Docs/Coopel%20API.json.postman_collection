@@ -1,215 +1,230 @@
 {
-  "version":1,
-  "collections":[
-    {
-      "id":"48b33732-777c-4e77-6201-7804c4ae37c8",
-      "name":"Coopel API",
-      "description":"",
-      "order":[
-        "7df5444f-1699-9e89-9b15-8ca32ab4b809",
-        "7678f905-7ebd-67b8-03ee-e0cda72a8de4",
-        "de0cc080-f416-1a69-5245-3eea1b2e5313",
-        "eba42f52-0210-4fe5-f2f7-061c8ae0edee",
-        "dd40aa75-7924-145d-4f4a-5366cfa42769",
-        "76e206fd-4f6b-63e6-e6ad-87d1c144c895",
-        "937167d9-1dce-3f16-27a7-c51dab5e8c9e",
-        "c03bc163-5f6c-bd9c-3b48-5d1a2d7b4677",
-        "6e062a4c-12ed-fb79-2932-a4ab8ecf243f",
-        "86acf614-59a4-a02b-ad23-231a60cef62c"
-      ],
-      "folders":[
-
-      ],
-      "timestamp":1427886689432,
-      "synced":false,
-      "owner":0,
-      "sharedWithTeam":false,
-      "subscribed":false,
-      "remoteLink":"",
-      "public":false,
-      "write":true,
-      "requests":[
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"6e062a4c-12ed-fb79-2932-a4ab8ecf243f",
-          "name":"API - Checkin ",
-          "description":"",
-          "url":"{{url}}/api/checkin/55253011096e4ce76996348a",
-          "method":"POST",
-          "headers":"",
-          "data":[
-
-          ],
-          "dataMode":"params",
-          "timestamp":0,
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"7678f905-7ebd-67b8-03ee-e0cda72a8de4",
-          "name":"Login",
-          "description":"",
-          "url":"{{url}}/login",
-          "method":"POST",
-          "headers":"Content-Type: application/json\n",
-          "data":"{\n  \"email\": \"a@a.a\",\n  \"password\": \"12345678\"\n}",
-          "dataMode":"raw",
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"76e206fd-4f6b-63e6-e6ad-87d1c144c895",
-          "name":"API - Todos Quartos",
-          "description":"",
-          "url":"{{url}}/api/quartos",
-          "method":"GET",
-          "headers":"",
-          "data":"{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
-          "dataMode":"params",
-          "timestamp":0,
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"7df5444f-1699-9e89-9b15-8ca32ab4b809",
-          "name":"Register",
-          "description":"",
-          "url":"{{url}}/register",
-          "method":"POST",
-          "headers":"Content-Type: application/json\n",
-          "data":"{\n  \"name\" : \"Thales Machado\",\n  \"confirmPassword\": \"12345678\",\n  \"email\": \"a@a.a\",\n  \"password\": \"12345678\",\n  \"roles\": \"gerente\",\n  \"phone\": \"948180006\",\n  \"cpf\" : \"NoValidationYet\"\n}",
-          "dataMode":"raw",
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"86acf614-59a4-a02b-ad23-231a60cef62c",
-          "name":"API - Checkout",
-          "description":"",
-          "url":"{{url}}/api/checkout/55253011096e4ce76996348a",
-          "method":"POST",
-          "headers":"",
-          "data":[
-
-          ],
-          "dataMode":"params",
-          "timestamp":0,
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"937167d9-1dce-3f16-27a7-c51dab5e8c9e",
-          "name":"API - Quartos Livres - Dado Data inicio e fim",
-          "description":"",
-          "url":"{{url}}/api/quartos_livres/2015-04-16/2015-04-18",
-          "method":"GET",
-          "headers":"",
-          "data":"{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
-          "dataMode":"params",
-          "timestamp":0,
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"c03bc163-5f6c-bd9c-3b48-5d1a2d7b4677",
-          "name":"API - Quarto ",
-          "description":"",
-          "url":"{{url}}/api/quarto/55253011096e4ce76996348a",
-          "method":"GET",
-          "headers":"",
-          "data":"{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
-          "dataMode":"params",
-          "timestamp":0,
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"dd40aa75-7924-145d-4f4a-5366cfa42769",
-          "name":"API - Quartos com reservas",
-          "description":"",
-          "url":"{{url}}/api/reservas",
-          "method":"GET",
-          "headers":"",
-          "data":"{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
-          "dataMode":"params",
-          "timestamp":0,
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"de0cc080-f416-1a69-5245-3eea1b2e5313",
-          "name":"Quarto - Edit",
-          "description":"",
-          "url":"{{url}}/quarto",
-          "method":"POST",
-          "headers":"Content-Type: application/json\n",
-          "data":"{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
-          "dataMode":"raw",
-          "responses":[
-
-          ],
-          "version":2
-        },
-        {
-          "collectionId":"48b33732-777c-4e77-6201-7804c4ae37c8",
-          "id":"eba42f52-0210-4fe5-f2f7-061c8ae0edee",
-          "name":"Quarto - Create",
-          "description":"",
-          "url":"{{url}}/quarto",
-          "method":"PUT",
-          "headers":"Content-Type: application/json\n",
-          "data":"{\n    \"number\": 103,\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
-          "dataMode":"raw",
-          "responses":[
-
-          ],
-          "version":2
-        }
-      ]
-    }
-  ],
-  "environments":[
-    {
-      "id":"959d6a17-090b-01ea-d109-4864ac7a8c56",
-      "name":"Coopel",
-      "values":[
-        {
-          "key":"url",
-          "value":"localhost:3000",
-          "type":"text"
-        }
-      ],
-      "timestamp":1428500392479
-    }
-  ],
-  "headerPresets":[
-
-  ],
-  "globals":[
-
-  ]
+	"id": "48b33732-777c-4e77-6201-7804c4ae37c8",
+	"name": "Coopel API",
+	"description": "",
+	"order": [
+		"7df5444f-1699-9e89-9b15-8ca32ab4b809",
+		"7678f905-7ebd-67b8-03ee-e0cda72a8de4",
+		"de0cc080-f416-1a69-5245-3eea1b2e5313",
+		"eba42f52-0210-4fe5-f2f7-061c8ae0edee",
+		"dd40aa75-7924-145d-4f4a-5366cfa42769",
+		"76e206fd-4f6b-63e6-e6ad-87d1c144c895",
+		"937167d9-1dce-3f16-27a7-c51dab5e8c9e",
+		"c03bc163-5f6c-bd9c-3b48-5d1a2d7b4677",
+		"6e062a4c-12ed-fb79-2932-a4ab8ecf243f",
+		"86acf614-59a4-a02b-ad23-231a60cef62c",
+		"7c2885b9-2da6-261e-a173-dbe68d3ee123"
+	],
+	"folders": [],
+	"timestamp": 1427886689432,
+	"synced": false,
+	"owner": 0,
+	"sharedWithTeam": false,
+	"subscribed": false,
+	"remoteLink": "",
+	"public": false,
+	"write": true,
+	"requests": [
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "6e062a4c-12ed-fb79-2932-a4ab8ecf243f",
+			"name": "API - Checkin ",
+			"description": "",
+			"url": "{{url}}/api/checkin/55253011096e4ce76996348a",
+			"method": "POST",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "7678f905-7ebd-67b8-03ee-e0cda72a8de4",
+			"name": "Login",
+			"description": "",
+			"url": "{{url}}/login",
+			"method": "POST",
+			"headers": "Content-Type: application/json\n",
+			"data": [],
+			"dataMode": "raw",
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false,
+			"rawModeData": "{\n  \"email\": \"a@a.a\",\n  \"password\": \"12345678\"\n}"
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "76e206fd-4f6b-63e6-e6ad-87d1c144c895",
+			"name": "API - Todos Quartos",
+			"description": "",
+			"url": "{{url}}/api/quartos",
+			"method": "GET",
+			"headers": "",
+			"data": "{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false
+		},
+		{
+			"id": "7c2885b9-2da6-261e-a173-dbe68d3ee123",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{url}}/api/reserva",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1428519239508,
+			"name": "Reserva - Create",
+			"description": "",
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n    \"reservation\": {\n        \"date_in\" : \"2015-04-14\",\n        \"date_out\" : \"2015-04-21\",\n        \"client\": \"551bd2dff004347631370b1a\"\n    }, \n    \"room_id\": \"551bdabf7f6b4eb1372c114b\",\n    \"daily_value\": 350\n}"
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "7df5444f-1699-9e89-9b15-8ca32ab4b809",
+			"name": "Register",
+			"description": "",
+			"url": "{{url}}/register",
+			"method": "POST",
+			"headers": "Content-Type: application/json\n",
+			"data": [],
+			"dataMode": "raw",
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false,
+			"rawModeData": "{\n  \"name\" : \"Thales Machado\",\n  \"confirmPassword\": \"12345678\",\n  \"email\": \"a@a.a\",\n  \"password\": \"12345678\",\n  \"roles\": \"gerente\",\n  \"phone\": \"948180006\",\n  \"cpf\" : \"NoValidationYet\"\n}"
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "86acf614-59a4-a02b-ad23-231a60cef62c",
+			"name": "API - Checkout",
+			"description": "",
+			"url": "{{url}}/api/checkout/55253011096e4ce76996348a",
+			"method": "POST",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "937167d9-1dce-3f16-27a7-c51dab5e8c9e",
+			"name": "API - Quartos Livres - Dado Data inicio e fim",
+			"description": "",
+			"url": "{{url}}/api/quartos_livres/2015-04-16/2015-04-18",
+			"method": "GET",
+			"headers": "",
+			"data": "{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "c03bc163-5f6c-bd9c-3b48-5d1a2d7b4677",
+			"name": "API - Quarto ",
+			"description": "",
+			"url": "{{url}}/api/quarto/55253011096e4ce76996348a",
+			"method": "GET",
+			"headers": "",
+			"data": "{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "dd40aa75-7924-145d-4f4a-5366cfa42769",
+			"name": "API - Quartos com reservas",
+			"description": "",
+			"url": "{{url}}/api/reservas",
+			"method": "GET",
+			"headers": "",
+			"data": "{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}",
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "de0cc080-f416-1a69-5245-3eea1b2e5313",
+			"name": "Quarto - Edit",
+			"description": "",
+			"url": "{{url}}/quarto",
+			"method": "POST",
+			"headers": "Content-Type: application/json\n",
+			"data": [],
+			"dataMode": "raw",
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false,
+			"rawModeData": "{\n    \"number\": 103,\n    \"_id\": \"551bdb93c21c636c38a8a032\",\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}"
+		},
+		{
+			"collectionId": "48b33732-777c-4e77-6201-7804c4ae37c8",
+			"id": "eba42f52-0210-4fe5-f2f7-061c8ae0edee",
+			"name": "Quarto - Create",
+			"description": "",
+			"url": "{{url}}/quarto",
+			"method": "PUT",
+			"headers": "Content-Type: application/json\n",
+			"data": [],
+			"dataMode": "raw",
+			"responses": [],
+			"version": 2,
+			"owner": 0,
+			"preRequestScript": "",
+			"tests": "",
+			"synced": false,
+			"rawModeData": "{\n    \"number\": 103,\n    \"accomodation\": 5,\n    \"daily_price\": 45,\n    \"status\": 1\n}"
+		}
+	]
 }
