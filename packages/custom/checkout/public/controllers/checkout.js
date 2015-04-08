@@ -57,7 +57,7 @@ angular.module('mean.checkout').controller('CheckoutController', ['$scope', '$ht
             date_in: '2015-04-16',
             date_out: '2015-04-18',
             client: '55253011096e4ce76996348a',
-            value: 0
+            value: 100
           },
           roomId: '123123123',
           daily_value: '1231231'
