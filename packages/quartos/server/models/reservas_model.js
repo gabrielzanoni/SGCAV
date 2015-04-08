@@ -69,26 +69,4 @@ ReservaSchema.statics.getIds = function (startDate, endDate, cb) {
   });
 };
 
-
-/**
-* Create a Reservation
-*/
-ReservaSchema.statics.create = function (reservation , cb) {
-
-  this.insert({
-    date_in : reservation.date_in,
-    date_out : reservation.date_out,
-    value: reservation.value,
-    user_id, reservation.user_id
-  }, function (err) {
-    
-  })
-
-  var _reservation = new Reserva(reservation);
-
-  _reservation.save(function(err) {
-    cb(err, _reservation);
-  });
-};
-
 mongoose.model('Reserva', ReservaSchema);

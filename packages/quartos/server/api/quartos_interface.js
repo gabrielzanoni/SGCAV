@@ -109,9 +109,11 @@ exports.reserva = function(req, res) {
   var date_in = new Date(req.body.reservation.date_in),
        date_out = new Date(req.body.reservation.date_out);
 
-  req.reservation.value = Math.floor((date_in.getTime()-date_out.getTime())/(1000*60*60*24));
+  req.body.reservation.value = req.body.daily_value * Math.floor((date_out.getTime()-date_in.getTime())/(1000*60*60*24)) * 0.1;
 
-  Reserva.create(req.body.reservation, function(err, reservation) {
+  var reservation = new Reserva(req.body.reservation);
+
+  reservation.save(function(err) {
     if (err) {
       res.status(500).json(error);
     } else {
@@ -124,7 +126,7 @@ exports.reserva = function(req, res) {
           res.status(200).json({});
         }
       });
-      // TODO Save the data in Quartos model
     }
+
   });
 };
