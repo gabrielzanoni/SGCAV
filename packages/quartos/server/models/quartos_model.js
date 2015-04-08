@@ -61,45 +61,27 @@ QuartoSchema.statics.load = function(id, cb) {
 QuartoSchema.statics.getWithReservation = function (cb) {
   this.find({
     $where: 'this.reservations.length > 0'
-  }, function (err, data){
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, data);
-    }
-  });
+  }).populate('reservations').exec(cb);
 };
 
 /**
- * Get all Rooms 
+ * Get all Rooms
  */
 QuartoSchema.statics.getAll = function (cb) {
-  this.find({}, function (err, data){
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, data);
-    }
-  });
+  this.find({}).populate('reservations').exec(cb);
 };
 
 /**
  * Get Rooms with specific reservation ids
  */
 QuartoSchema.statics.getFree = function (ids, cb) {
-  this.find({ 
-    _id: { $nin: ids }
-  }, function (err, data){
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, data);
-    }
-  });
+  this.find({
+    reservations: { $nin: ids }
+  }).populate('reservations').exec(cb);
 };
 
 /**
- * Get all Rooms 
+ * Get all Rooms
  */
 QuartoSchema.statics.checkin = function (id, cb) {
   this.update(id, { status: 'OCUPADO' }, { upsert: false }, function (err){
@@ -112,7 +94,7 @@ QuartoSchema.statics.checkin = function (id, cb) {
 };
 
 /**
- * Get all Rooms 
+ * Get all Rooms
  */
 QuartoSchema.statics.checkout = function (id, cb) {
   this.update(id, { status: 'LIVRE' }, { upsert: false }, function (err){
@@ -121,6 +103,21 @@ QuartoSchema.statics.checkout = function (id, cb) {
     } else {
       cb(null);
     }
+  });
+};
+
+/**
+* Add a new Reservation to a Room
+*/
+QuartoSchema.statics.addReservation = function (id,reservation_id, cb) {
+
+  this.update(id, { $addToSet : { reservations : reservation_id }}, { upsert : false }, function (err) {
+
+     if (err) {
+       cb(err);
+     } else {
+       cb(null);
+     }
   });
 };
 
