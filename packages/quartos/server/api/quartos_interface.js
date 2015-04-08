@@ -5,8 +5,7 @@
  */
 var mongoose = require('mongoose'),
   Quarto = mongoose.model('Quarto'),
-  Reserva = mongoose.model('Reserva'),
-  error = { error: 'There was an error.' };
+  Reserva = mongoose.model('Reserva');
 
 
 /**
@@ -32,7 +31,7 @@ exports.reservas = function(req, res) {
 exports.quartos = function(req, res) {
   Quarto.getAll(function(err, data){
     if (err) {
-      res.status(500).json(error);
+      res.status(500).json(err);
     } else {
       res.status(200).json({results: data });
     }
@@ -67,7 +66,7 @@ exports.quartos_livres = function(req, res) {
 exports.quarto = function(req, res) {
   Quarto.findOne(req.id, function (err, data){
     if (err) {
-      res.status(500).json(error);
+      res.status(500).json(err);
     } else {
       res.status(200).json({results: data });
     }
@@ -84,7 +83,7 @@ exports.quarto = function(req, res) {
 exports.checkin = function(req, res) {
   Quarto.checkin(req.id, function (err){
     if (err) {
-      res.status(500).json(error);
+      res.status(500).json(err);
     } else {
       res.json({results: 'Success'});
     }
@@ -97,7 +96,7 @@ exports.checkin = function(req, res) {
 exports.checkout = function(req, res) {
   Quarto.checkout(req.id, function (err){
     if (err) {
-      res.status(500).json(error);
+      res.status(500).json(err);
     } else {
       res.json({results: 'Success'});
     }
