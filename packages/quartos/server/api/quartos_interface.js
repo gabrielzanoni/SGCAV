@@ -19,7 +19,7 @@ var mongoose = require('mongoose'),
 exports.reservas = function(req, res) {
   Quarto.getWithReservation(function(err, data){
     if (err) {
-      res.status(500).json(error);  
+      res.status(500).json(err);  
     } else {
       res.status(200).json({results: data });
     }
@@ -48,11 +48,11 @@ exports.quartos_livres = function(req, res) {
 
   Reserva.getIds(startDate, endDate, function(err, data){
     if (err) {
-      res.status(500).json(error);  
+      res.status(500).json(err);  
     } else {
       Quarto.getFree(data, function(err, data){
         if (err) {
-          res.status(500).json(error);  
+          res.status(500).json(err);  
         } else {
           res.status(200).json({results: data });
         }
