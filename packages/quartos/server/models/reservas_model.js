@@ -27,7 +27,7 @@ var ReservaSchema = new Schema({
     type: Number,
     required: true
   },
-  client: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 
@@ -44,7 +44,7 @@ var ReservaSchema = new Schema({
 ReservaSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
-  }).populate('client').exec(cb);
+  }).exec(cb);
 };
 
 /**
@@ -52,9 +52,42 @@ ReservaSchema.statics.load = function(id, cb) {
 */
 ReservaSchema.statics.getIds = function (startDate, endDate, cb) {
   this.find({
-    date_in: startDate,
-    date_out: endDate
+
+
+    $or : [
+      //      |   *    |     *
+      {
+        $and : [
+          { date_in :  { $lte : new Date(startDate) } } ,
+          { date_out : { $lte: new Date(endDate) } }
+        ]
+      },
+      //          *    |     *    |
+      {
+        $and : [
+          { date_in :  { $gte: new Date(startDate) } } ,
+          { date_out : { $gte: new Date(endDate) } }
+        ]
+      },
+      //          *  |   |   *
+      {
+        $and : [
+          { date_in :  { $gte: new Date(startDate) } } ,
+          { date_out : { $lte: new Date(endDate) } }
+        ]
+      },
+      //       |  *          *   |
+      {
+        $and : [
+          { date_in :  { $lte: new Date(startDate) } } ,
+          { date_out : { $gte: new Date(endDate) } }
+        ]
+      }
+    ]
+
   }, function (err, data){
+
+    console.log(err);
     if (err) {
       cb(err);
     } else {
@@ -68,6 +101,5 @@ ReservaSchema.statics.getIds = function (startDate, endDate, cb) {
     }
   });
 };
-
 
 mongoose.model('Reserva', ReservaSchema);

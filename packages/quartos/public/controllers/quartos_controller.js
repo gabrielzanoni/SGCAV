@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.quartos').controller('QuartosController', ['$scope', '$stateParams', '$location', 'Global', 'Quartos',
-  function($scope, $stateParams, $location, Global, Quartos) {
+angular.module('mean.quartos').controller('QuartosController', ['$scope', '$http', '$stateParams', '$location', 'Global', 'Quartos',
+  function($scope, $http, $stateParams, $location, Global, Quartos) {
     $scope.global = Global;
 
     $scope.hasAuthorization = function() {
@@ -72,9 +72,15 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$stat
     };
 
     $scope.find = function() {
-      Quartos.query(function(quartos) {
-        $scope.quartos = quartos;
-      });
+      $http.get('/api/quartos_livres/2015-04-16/2015-04-18')
+        .success(function(data, status, headers, config) {
+          console.log(data);
+          $scope.quartos = data.results;
+        }).
+        error(function(data, status, headers, config) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
     };
 
     $scope.findOne = function() {

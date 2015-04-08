@@ -20,8 +20,8 @@
           </a>
         </span>
       </h2>
-      <button ng-if="isUser()" class="btn btn-info"> Reservar quarto </button>
-      <div style="display: block;">Reservado por: <strong>Cliente</strong></div>
+      <button ng-if="isUser()" class="btn btn-info" style="margin-left: 7em"> Reservar quarto </button>
+      <div style="display: block;">Preço da diária: <strong>{{quarto.daily_price | currency:"R$ "}}</strong></div>
     </li>
   </ul>
   <h1 data-ng-hide="!quartos || quartos.length">Nenhum quarto cadastrado.</h1>

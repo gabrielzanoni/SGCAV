@@ -69,6 +69,7 @@ exports.create = function(req, res, next) {
   user.roles.push('authenticated');
   user.save(function(err) {
     if (err) {
+      console.log(err);
       switch (err.code) {
         case 11000:
           res.status(400).send([{
