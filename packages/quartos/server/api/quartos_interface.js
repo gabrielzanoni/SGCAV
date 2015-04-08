@@ -18,7 +18,7 @@ var mongoose = require('mongoose'),
 exports.reservas = function(req, res) {
   Quarto.getWithReservation(function(err, data){
     if (err) {
-      res.status(500).json(err);  
+      res.status(500).json(err);
     } else {
       res.status(200).json({results: data });
     }
@@ -31,7 +31,7 @@ exports.reservas = function(req, res) {
 exports.quartos = function(req, res) {
   Quarto.getAll(function(err, data){
     if (err) {
-      res.status(500).json(err);  
+      res.status(500).json(err);
     } else {
       res.status(200).json({results: data });
     }
@@ -47,11 +47,11 @@ exports.quartos_livres = function(req, res) {
 
   Reserva.getIds(startDate, endDate, function(err, data){
     if (err) {
-      res.status(500).json(err);  
+      res.status(500).json(err);
     } else {
       Quarto.getFree(data, function(err, data){
         if (err) {
-          res.status(500).json(err);  
+          res.status(500).json(err);
         } else {
           res.status(200).json({results: data });
         }
@@ -66,7 +66,7 @@ exports.quartos_livres = function(req, res) {
 exports.quarto = function(req, res) {
   Quarto.findOne(req.id, function (err, data){
     if (err) {
-      res.status(500).json(err);  
+      res.status(500).json(err);
     } else {
       res.status(200).json({results: data });
     }
@@ -83,7 +83,7 @@ exports.quarto = function(req, res) {
 exports.checkin = function(req, res) {
   Quarto.checkin(req.id, function (err){
     if (err) {
-      res.status(500).json(err);  
+      res.status(500).json(err);
     } else {
       res.json({results: 'Success'});
     }
@@ -96,9 +96,31 @@ exports.checkin = function(req, res) {
 exports.checkout = function(req, res) {
   Quarto.checkout(req.id, function (err){
     if (err) {
-      res.status(500).json(err);  
+      res.status(500).json(err);
     } else {
       res.json({results: 'Success'});
     }
+  });
+};
+
+exports.reserva = function(req, res) {
+
+  var reservation = new Reserva(req.body.reservation);
+
+  reservation.save(function(err) {
+    if (err) {
+      res.status(500).json(error);
+    } else {
+
+      Quarto.addReservation(req.room_id, reservation._id, function (err) {
+
+        if (err) {
+          res.status(500).json(error);
+        } else {
+          res.status(200).json({});
+        }
+      });
+    }
+
   });
 };
