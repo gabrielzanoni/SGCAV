@@ -35,11 +35,14 @@ module.exports = function(Quartos, app, auth) {
     .get(quartosInterface.quartos_livres);
   app.route('/api/quarto/:id')
     .get(quartosInterface.quarto);
-  
+
   app.route('/api/checkin/:id')
     .post(quartosInterface.checkin);
   app.route('/api/checkout/:id')
     .post(quartosInterface.checkout);
+
+  app.route('/api/reserva')
+    .put(quartosInterface.reserva);
 
 
   // Finish with setting up the quartoId param
