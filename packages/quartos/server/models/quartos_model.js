@@ -85,7 +85,7 @@ QuartoSchema.statics.getAll = function (cb) {
  */
 QuartoSchema.statics.getFree = function (ids, cb) {
   this.find({ 
-    _id: { $nin: ids }
+    reservations: { $nin: ids }
   }, function (err, data){
     if (err) {
       cb(err);
