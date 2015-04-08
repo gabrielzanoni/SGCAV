@@ -1,3 +1,13 @@
 <section data-ng-controller="IndexController">
-  <h1 mean-token="'home-default'">Bem vindo ao Coopel!</h1>
+  <form style="z-index:10" name="quartoForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(quartoForm.$valid)" novalidate>
+    <div style="margin-top: 100px;" class="form-group form-inline" ng-class="{ 'has-error' : submitted && quartoForm.title.$invalid }">
+      <div style="text-align: center">
+        <input name="start" type="date" class="form-control" data-ng-model="start" id="title" placeholder="Entrada: dd/mm/yy" required>
+        <input name="end" type="date" class="form-control" data-ng-model="end" id="title" placeholder="Saida: dd/mm/yy" required>
+        <a style="text-decoration: none !important;" ui-sref="quartos">
+          <button type="submit" class="btn btn-info">Procurar</button>
+        </a>
+      </div>
+    </div>
+  </form>
 </section>
