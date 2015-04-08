@@ -23,15 +23,18 @@ var QuartoSchema = new Schema({
   status: {
     type: String,
     enum: ['LIVRE', 'OCUPADO', 'RESERVADO'],
-    default: 'LIVRE'
+    default: 'LIVRE',
+    required: false
   },
   daily_price: {
     type: Number,
-    default: 60
+    default: 60,
+    required: false
   },
   accomodation: {
     type: Number,
-    default: 2
+    default: 2,
+    required: false
   },
   reservations: [{ type: Schema.Types.ObjectId, ref: 'Reserva' }]
 });

@@ -15,7 +15,9 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$stat
     $scope.create = function(isValid) {
       if (isValid) {
         var quarto = new Quartos({
-          title: this.title
+          number: this.number,
+          'daily-price': this.dailyPrice,
+          status: 'LIVRE'
         });
         quarto.$save(function(response) {
           $location.path('quartos/' + response._id);
