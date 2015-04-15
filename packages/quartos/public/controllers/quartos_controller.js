@@ -58,15 +58,19 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$stat
 
     $scope.update = function(isValid) {
       if (isValid) {
-        var quarto = $scope.quarto;
-        if (!quarto.updated) {
-          quarto.updated = [];
-        }
-        quarto.updated.push(new Date().getTime());
-
-        quarto.$update(function() {
-          $location.path('quartos/' + quarto._id);
-        });
+        $http.post('/quarto', {
+          'number': $scope.quarto['number'],
+          'daily_price': $scope.quarto['daily_price'],
+          '_id': $scope.quarto['_id'],
+          'status': $scope.quarto['status']
+          })
+          .success(function(data, status, headers, config) {
+            $state.transitionTo('quartos');
+          }).
+          error(function(data, status, headers, config) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+          });
       } else {
         $scope.submitted = true;
       }
@@ -90,5 +94,7 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$stat
         $scope.quarto = quarto;
       });
     };
+
+    if($state.current.name == "edit quarto") $scope.findOne();
   }
 ]);

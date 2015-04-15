@@ -10,7 +10,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$state',
         console.log($scope);
         debugger;
         localStorage.setItem("dateStart", getDateString($scope.start));
-        localStorage.setItem("dateDnd", getDateString($scope.end));
+        localStorage.setItem("dateEnd", getDateString($scope.end));
 
 		    $state.transitionTo('quartos');
       } else {

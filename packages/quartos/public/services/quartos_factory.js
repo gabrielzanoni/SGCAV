@@ -3,10 +3,10 @@
 angular.module('mean.quartos').factory('Quartos', [ '$resource',
     function($resource) {
       return $resource('quartos/:quartoId', {
-        missaoId: '@_id'
+        quartoId: '@_id'
       }, {
         update: {
-          method: 'PUT'
+          method: 'POST'
         }
       });
     }
