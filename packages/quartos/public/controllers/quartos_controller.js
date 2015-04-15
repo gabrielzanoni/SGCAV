@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('mean.quartos').controller('QuartosController', ['$scope', '$http', '$stateParams', '$location', 'Global', 'Quartos',
-  function($scope, $http, $stateParams, $location, Global, Quartos) {
+angular.module('mean.quartos').controller('QuartosController', ['$scope', '$state', '$http', '$stateParams', '$location', 'Global', 'Quartos',
+  function($scope, $state, $http, $stateParams, $location, Global, Quartos) {
     $scope.global = Global;
+    console.log($state);
 
     $scope.hasAuthorization = function() {
       return sessionStorage.roles.indexOf('gerente') >= 0;
@@ -15,12 +16,12 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$http
     $scope.create = function(isValid) {
       if (isValid) {
         var quarto = new Quartos({
-          number: this.number,
-          'daily-price': this.dailyPrice,
+          number: $scope.number,
+          'daily_price': $scope.dailyPrice,
           status: 'LIVRE'
         });
         quarto.$save(function(response) {
-          $location.path('quartos/' + response._id);
+          $state.transitionTo('quartos');
         });
 
         this.title = '';
@@ -72,9 +73,8 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$http
     };
 
     $scope.find = function() {
-      $http.get('/api/quartos_livres/2015-04-16/2015-04-18')
+      $http.get('/api/quartos_livres/' + localStorage.getItem("dateStart") + "/"+ localStorage.getItem("dateEnd"))
         .success(function(data, status, headers, config) {
-          console.log(data);
           $scope.quartos = data.results;
         }).
         error(function(data, status, headers, config) {

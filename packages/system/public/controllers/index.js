@@ -5,11 +5,21 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$state',
     $scope.global = Global;
 
     $scope.procurar = function(isValid){
+      console.log($scope.form);
       if (isValid) {
-		$state.transitionTo('quartos');
+        console.log($scope);
+        debugger;
+        localStorage.setItem("dateStart", getDateString($scope.start));
+        localStorage.setItem("dateDnd", getDateString($scope.end));
+
+		    $state.transitionTo('quartos');
       } else {
         $scope.submitted = true;
       }
+    };
+
+    function getDateString(date){
+      return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
     };
   }
 ]);
