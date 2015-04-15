@@ -2,7 +2,7 @@
 
 module.exports = {
   // db: 'localhost:27017',
-  db: 'mongodb://heroku_app34575112:heroku_app34575112@dbh44.mongolab.com:27447/heroku_app34575112',
+  db: 'mongodb://heroku_app34575112:heroku_app34575112@ds061681.mongolab.com:61681/coopel',
   app: {
     name: 'MEAN - FullStack JS - Development'
   },
