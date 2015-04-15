@@ -9,19 +9,17 @@ angular.module('mean.checkout').controller('CheckoutController', ['$scope', '$ht
     };
 
     $scope.params = {
-      idQuarto: '55253011096e4ce76996348a',
-      idUsuario: '55253011096e4ce76996348a',
-      dateStart: '2015-04-16',
-      dateEnd: '2015-04-18',
+      idQuarto: localStorage.getItem('idQuarto'),
+      idUsuario: $scope.global.user._id,
+      dateStart: localStorage.getItem('dateStart'),
+      dateEnd: localStorage.getItem('dateEnd'),
       room: {}
     };
 
-    $scope.user = {};
-
     $scope.reservation = {
-      date_in: '2015-04-16',
-      date_out: '2015-04-18',
-      client: '55253011096e4ce76996348a',
+      date_in: localStorage.getItem('dateStart'),
+      date_out: localStorage.getItem('dateEnd'),
+      client: $scope.global.user._id,
       value: 0
     };
 
@@ -49,30 +47,25 @@ angular.module('mean.checkout').controller('CheckoutController', ['$scope', '$ht
     $scope.reservar = function () {
       // Make the payment
       var confirmPayment = confirm('Deseja continuar com o pagamento?');
-      var reserve 
+      // var reserve;
       if (confirmPayment) {
         // Send register request
-        $http.post('/api/reserva', {
-          reservation: {
-            date_in: '2015-04-16',
-            date_out: '2015-04-18',
-            client: '55253011096e4ce76996348a',
-            value: 100
-          },
-          roomId: '123123123',
-          daily_value: '1231231'
+        $http.put('/api/reserva', {
+          reservation: $scope.reservation,
+          roomId: $scope.params.idQuarto,
+          daily_value: $scope.params.room.daily_price
         })
-          .success(function() {
+          .success(function(test) {
             // Sucess
-            console.log("Check");
+            console.log(test);
           })
           .error(function(error) {
             // Error: authentication failed
-            console.log("Error");
+            console.log('Error');
           });
         } else {
           $location.url('/quartos');
-        };
+        }
     };
 
   }

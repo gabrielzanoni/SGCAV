@@ -73,7 +73,7 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$stat
     };
 
     $scope.find = function() {
-      $http.get('/api/quartos_livres/' + localStorage.getItem("dateStart") + "/"+ localStorage.getItem("dateEnd"))
+      $http.get('/api/quartos_livres/' + localStorage.getItem('dateStart') + '/'+ localStorage.getItem('dateEnd'))
         .success(function(data, status, headers, config) {
           $scope.quartos = data.results;
         }).
@@ -89,6 +89,12 @@ angular.module('mean.quartos').controller('QuartosController', ['$scope', '$stat
       }, function(quarto) {
         $scope.quarto = quarto;
       });
+    };
+
+    $scope.reserve = function(quarto) {
+      localStorage.setItem('idQuarto', quarto._id);
+      console.log(quarto)
+      $location.url('/checkout');
     };
   }
 ]);

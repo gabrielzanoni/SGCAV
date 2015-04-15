@@ -106,16 +106,17 @@ exports.checkout = function(req, res) {
 exports.reserva = function(req, res) {
 
   var reservation = new Reserva(req.body.reservation);
+  console.log(req.body);
 
   reservation.save(function(err) {
     if (err) {
-      res.status(500).json(error);
+      res.status(500).json(err);
     } else {
 
-      Quarto.addReservation(req.room_id, reservation._id, function (err) {
+      Quarto.addReservation(req.body.roomId, reservation._id, function (err) {
 
         if (err) {
-          res.status(500).json(error);
+          res.status(500).json(err);
         } else {
           res.status(200).json({});
         }

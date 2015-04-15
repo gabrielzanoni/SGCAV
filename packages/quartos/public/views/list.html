@@ -20,7 +20,7 @@
           </a>
         </span>
       </h2>
-      <button ng-if="isUser()" class="btn btn-info" style="margin-left: 7em"> Reservar quarto </button>
+      <button ng-if="isUser()" ng-click="reserve(quarto)" class="btn btn-info" style="margin-left: 7em"> Reservar quarto </button>
       <div style="display: block;">Preço da diária: <strong>{{quarto.daily_price | currency:"R$ "}}</strong></div>
     </li>
   </ul>

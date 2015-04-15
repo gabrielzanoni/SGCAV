@@ -1,6 +1,7 @@
-<div class="" data-ng-controller="CheckoutController">
+<div class="container" data-ng-controller="CheckoutController" style="padding: 10px; background-color: rgba(238, 238, 238, 0.9);
+  border-radius: 6px;">
   <h1>Reservar quarto {{params.room.number}}</h1>
-  <h2>Do dia {{params.dateStart}} ao dia {{params.dateEnd}} por R$ {{reservation.value}}</h2>
+  <h2>Do dia {{params.dateStart}} ao dia {{params.dateEnd}} por <span class="text-danger">R$ {{reservation.value}}</span></h2>
   <form ng-submit="reservar()" class="signup form-horizontal">
     <div class="form-group">
       <div class="col-md-12">
