@@ -17,12 +17,12 @@ Checkout.register(function(app, auth, database) {
   Checkout.routes(app, auth, database);
 
   //We are adding a link to the main menu for all authenticated users
-  Checkout.menus.add({
-    title: 'Reservar',
-    link: 'checkout example page',
-    roles: ['authenticated'],
-    menu: 'main'
-  });
+  // Checkout.menus.add({
+  //   title: 'Reservar',
+  //   link: 'checkout example page',
+  //   roles: ['authenticated'],
+  //   menu: 'main'
+  // });
   
   Checkout.aggregateAsset('css', 'checkout.css');
 
