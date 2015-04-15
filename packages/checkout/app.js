@@ -20,7 +20,7 @@ Checkout.register(function(app, auth, database) {
   Checkout.menus.add({
     title: 'Reservar',
     link: 'checkout example page',
-    // roles: ['authenticated'],
+    roles: ['authenticated'],
     menu: 'main'
   });
   

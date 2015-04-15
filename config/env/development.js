@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  db: 'localhost:27017',
-  // db: 'mongodb://heroku_app34575112:heroku_app34575112@dbh44.mongolab.com:27447/heroku_app34575112',
+  // db: 'localhost:27017',
+  db: 'mongodb://heroku_app34575112:heroku_app34575112@dbh44.mongolab.com:27447/heroku_app34575112',
   app: {
     name: 'MEAN - FullStack JS - Development'
   },
@@ -38,5 +38,6 @@ module.exports = {
       user: 'EMAIL_ID',
       pass: 'PASSWORD'
     }
-  }
+  },
+  financialWS: 'http://teste.com'
 };

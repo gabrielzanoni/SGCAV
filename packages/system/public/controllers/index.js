@@ -7,10 +7,8 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$state',
     $scope.procurar = function(isValid){
       console.log($scope.form);
       if (isValid) {
-        console.log($scope);
-        debugger;
-        localStorage.setItem("dateStart", getDateString($scope.start));
-        localStorage.setItem("dateEnd", getDateString($scope.end));
+        localStorage.setItem('dateStart', getDateString($scope.start));
+        localStorage.setItem('dateEnd', getDateString($scope.end));
 
 		    $state.transitionTo('quartos');
       } else {
@@ -20,6 +18,6 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$state',
 
     function getDateString(date){
       return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
-    };
+    }
   }
 ]);
