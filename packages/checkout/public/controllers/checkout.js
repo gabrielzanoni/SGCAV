@@ -56,12 +56,16 @@ angular.module('mean.checkout').controller('CheckoutController', ['$scope', '$ht
           daily_value: $scope.params.room.daily_price
         })
           .success(function(test) {
-            // Sucess
-            console.log(test);
+            // TODO: Send request to Financial group
+            // groupUrl = 
+            // $http.post('', {
+
+            // })
+            $location.url('/');
           })
           .error(function(error) {
             // Error: authentication failed
-            console.log('Error');
+            $location.url('/');
           });
         } else {
           $location.url('/quartos');

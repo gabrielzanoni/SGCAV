@@ -49,6 +49,8 @@ exports.quartos_livres = function(req, res) {
     if (err) {
       res.status(500).json(err);
     } else {
+      console.log(data);
+
       Quarto.getFree(data, function(err, data){
         if (err) {
           res.status(500).json(err);
