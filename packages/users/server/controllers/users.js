@@ -55,7 +55,9 @@ exports.create = function(req, res, next) {
   req.assert('name', 'You must enter a name').notEmpty();
   req.assert('email', 'You must enter a valid email address').isEmail();
   req.assert('password', 'Password must be between 8-20 characters long').len(8, 20);
-  req.assert('username', 'Username cannot be more than 20 characters').len(1, 20);
+  // req.assert('username', 'Username cannot be more than 20 characters').len(1, 20);
+  req.assert('phone', 'Phone number is required on registration').notEmpty();
+  req.assert('cpf', 'CPF is required on registration').notEmpty();
   req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
 
   var errors = req.validationErrors();
@@ -72,12 +74,6 @@ exports.create = function(req, res, next) {
           res.status(400).send([{
             msg: 'Email already taken',
             param: 'email'
-          }]);
-          break;
-        case 11001:
-          res.status(400).send([{
-            msg: 'Username already taken',
-            param: 'username'
           }]);
           break;
         default:

@@ -1,0 +1,27 @@
+<section data-ng-controller="QuartosController" class="container" style="background-color: rgba(238, 238, 238, 0.9);
+  border-radius: 6px;">
+  <form name="quartoForm" class="form-horizontal col-md-12" role="form" data-ng-submit="create(quartoForm.$valid)" novalidate style="margin-top: 15px">
+    <div class="form-group" ng-class="{ 'has-error' : submitted && quartoForm.number.$invalid }">
+      <div class="col-md-12">
+        <input name="number" type="number" class="form-control" data-ng-model="number" id="number" placeholder="Número" required>
+        <div ng-show="submitted && quartoForm.number.$invalid" class="help-block">
+          <p ng-show="quartoForm.number.$error.required">Número obrigatório</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && quartoForm.dailyPrice.$invalid }">
+      <div class="col-md-12">
+        <input name="dailyPrice" type="number" class="form-control" data-ng-model="dailyPrice" id="dailyPrice" placeholder="Preço da diária" required>
+        <div ng-show="submitted && quartoForm.dailyPrice.$invalid" class="help-block">
+          <p ng-show="quartoForm.dailyPrice.$error.required">Preço da diária obrigatório</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-info">Enviar</button>
+        &nbsp;<a ui-sref='quartos' style='color: white'>Cancel</a>
+      </div>
+    </div>
+  </form>
+</section>
