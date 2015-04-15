@@ -24,5 +24,6 @@
       <div style="display: block;">Preço da diária: <strong>{{quarto.daily_price | currency:"R$ "}}</strong></div>
     </li>
   </ul>
-  <h1 data-ng-hide="!quartos || quartos.length">Nenhum quarto cadastrado.</h1>
+  <h1 ng-if="!isUser()" data-ng-hide="!quartos || quartos.length">Nenhum quarto cadastrado.</h1>
+  <h1 ng-if="isUser()" data-ng-hide="!quartos || quartos.length">Todos os quartos reservados para essa data.</h1>
 </section>
