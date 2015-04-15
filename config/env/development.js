@@ -38,5 +38,6 @@ module.exports = {
       user: 'EMAIL_ID',
       pass: 'PASSWORD'
     }
-  }
+  },
+  financialWS: 'http://teste.com'
 };

@@ -3,8 +3,8 @@
 angular.module('mean.checkout').config(['$stateProvider',
   function($stateProvider) {
     $stateProvider
-      .state('checkout example page', {
-        url: '/checkout/example',
+      .state('checkout', {
+        url: '/checkout',
         templateUrl: 'checkout/views/index.html'
       });
   }
