@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  // db: 'localhost:27017',
-  db: 'mongodb://heroku_app34575112:heroku_app34575112@ds061621.mongolab.com:61621/heroku_app34575112',
+  db: 'localhost:27017',
+  // db: 'mongodb://heroku_app34575112:heroku_app34575112@ds061681.mongolab.com:61681/coopel',
   app: {
     name: 'MEAN - FullStack JS - Development'
   },
